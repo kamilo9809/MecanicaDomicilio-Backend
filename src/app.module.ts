@@ -15,6 +15,7 @@ import * as dotenv from 'dotenv';
 import { Pedidos } from './pedidos/pedidos.entity';
 import { Usuarios } from './usuarios/usuarios.entity';
 import { Calificaciones } from './productos/calificaciones/calificaciones.entity';
+import { MapaModule } from './mapa/mapa.module';
 
 dotenv.config()
 
@@ -33,7 +34,7 @@ dotenv.config()
     ProductosModule,
     PedidosModule,
     UsuariosModule,
-
+    MapaModule,
   ],
   controllers: [AppController],
   providers: [AppService],
