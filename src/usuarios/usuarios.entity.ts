@@ -28,7 +28,7 @@ export class Usuarios {
     correo: string;
 
     @Column()
-    telefono: number;
+    telefono: string;
 
     @Column()
     fecha: Date;
