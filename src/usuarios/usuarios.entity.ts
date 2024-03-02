@@ -28,10 +28,7 @@ export class Usuarios {
     correo: string;
 
     @Column()
-    telefono: number;
-
-    @Column()
-    fecha: Date;
+    telefono: string;
 
     @Column({ type: 'varchar', length: 100 })
     password: string;

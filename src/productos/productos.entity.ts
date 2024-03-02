@@ -1,14 +1,14 @@
-import {Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany} from "typeorm"
-import {Categorias} from "./categorias/categorias.entity"
-import {Imagenes}from "./imagenes/imagenes.entity"
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany } from "typeorm"
+import { Categorias } from "../categorias/categorias.entity"
+import { Imagenes } from "./imagenes/imagenes.entity"
 import { Precio } from "./precio/precio.entity"
 import { Marca } from "./marca/marca.entity"
-import { Calificaciones } from "./calificaciones/calificaciones.entity"
+import { Calificaciones } from "../calificaciones/calificaciones.entity"
 
 
 
 @Entity()
-export class Productos{
+export class Productos {
 
     @PrimaryGeneratedColumn()//genera ei id automatico
     idProductos: number
@@ -17,7 +17,7 @@ export class Productos{
     nombre_productos: string
 
     @Column({ type: 'varchar', length: 1000 })
-    decripcion: string
+    descripcion: string
 
     @Column({ type: 'varchar', length: 100 })
     referencia: string
@@ -29,23 +29,24 @@ export class Productos{
     cantidad_stock: number
 
     // Definimos la relación muchos a uno con la entidad Categoria pero cada producto pertenece a una categoria
-    @ManyToOne(() => Categorias, categoria => categoria.productos)
+    @ManyToOne(() => Categorias, categoria => categoria.productos, {cascade: true})
     categoria: Categorias;
 
     //un producto puede tener muchas imagenes pero una imagen solo puede estar relacionada a un producto
-    @OneToMany(() => Imagenes, imagen => imagen.producto)
-    imagenes: Imagenes[];
+    // Ejemplo de la relación OneToMany con eliminación en cascada
+    @ManyToOne(() => Imagenes, imagen => imagen.producto, { cascade: true })
+    imagenes: Imagenes;
 
     //relacion uno a muchos por q el precio del producto puede cambiar con el tiempo 
-    @OneToMany(()=> Precio, precio => precio.productos)
-    precio: Precio[];
+    @ManyToOne(() => Precio, precio => precio.productos)
+    precio: Precio;
 
     // Relación "muchos a uno" con la entidad Marca
     @ManyToOne(() => Marca, marca => marca.productos)
     marca: Marca;
 
     //un producto puede tener varias calificaciones
-    @OneToMany(()=> Calificaciones, calificacion => calificacion.producto)
+    @OneToMany(() => Calificaciones, calificacion => calificacion.producto, { cascade: true })
     calificaciones: Calificaciones[]
-
+  nuevoProducto: Marca
 }

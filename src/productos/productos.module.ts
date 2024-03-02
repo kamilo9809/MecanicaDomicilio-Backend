@@ -1,13 +1,13 @@
 import { Module } from '@nestjs/common';
 import { ProductosService } from './productos.service';
 import { ProductosController } from './productos.controller';
-import {Categorias} from "./categorias/categorias.entity"
+import { Categorias } from "../categorias/categorias.entity"
 import { Productos} from "./productos.entity"
-import {Imagenes} from "./imagenes/imagenes.entity"
-import {Precio} from "../productos/precio/precio.entity"
+import { Imagenes } from "./imagenes/imagenes.entity"
+import { Precio } from "../productos/precio/precio.entity"
 import { Marca } from './marca/marca.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Calificaciones } from './calificaciones/calificaciones.entity';
+import { Calificaciones } from '../calificaciones/calificaciones.entity';
 
 
 
