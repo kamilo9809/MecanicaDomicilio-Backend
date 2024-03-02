@@ -4,7 +4,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from "@nestjs/typeorm"//este modulo simplifica la conexion a la base de datos
 import { ProductosModule } from './productos/productos.module';
 import {Productos} from "./productos/productos.entity"
-import {Categorias} from "./productos/categorias/categorias.entity"
+import { Categorias } from "./categorias/categorias.entity"
 import {Imagenes} from "./productos/imagenes/imagenes.entity"
 import {Precio} from "./productos/precio/precio.entity"
 import { Marca } from './productos/marca/marca.entity';
@@ -14,8 +14,11 @@ import {Detalles_pedidos} from "./pedidos/detalles_pedido/detalles_pedido.entity
 import * as dotenv from 'dotenv';
 import { Pedidos } from './pedidos/pedidos.entity';
 import { Usuarios } from './usuarios/usuarios.entity';
-import { Calificaciones } from './productos/calificaciones/calificaciones.entity';
+import { Calificaciones } from './calificaciones/calificaciones.entity';
 import { BuscadorModule } from './buscador/buscador.module';
+import { CalificacionesModule } from './calificaciones/calificaciones.module';
+import { CategoriasModule } from './categorias/categorias.module';
+
 
 dotenv.config()
 
@@ -35,6 +38,9 @@ dotenv.config()
     PedidosModule,
     UsuariosModule,
     BuscadorModule,
+    CalificacionesModule,
+    CategoriasModule
+
 
   ],
   controllers: [AppController],

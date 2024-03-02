@@ -6,9 +6,8 @@ export class CrearUsuarioDto{
     ciudad: string
     direccion: string
     correo: string
-    telefono: string
-    fecha: Date
     password: string
+    telefono: string
 }
 
 export class actualizarUsuarioDto{
@@ -19,7 +18,6 @@ export class actualizarUsuarioDto{
     ciudad: string
     direccion: string
     correo: string
-    telefono: string
-    fecha: Date
     password: string
+    telefono: string
 }

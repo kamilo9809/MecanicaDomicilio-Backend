@@ -30,9 +30,6 @@ export class Usuarios {
     @Column()
     telefono: string;
 
-    @Column()
-    fecha: Date;
-
     @Column({ type: 'varchar', length: 100 })
     password: string;
 
