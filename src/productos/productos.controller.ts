@@ -22,33 +22,22 @@ export class ProductosController {
 
   //crea el producto
   @Post()
-  async crearProducto(
-    @Body() datosProducto: any
-  ): Promise<Productos> {
-    const productoData: Partial<Productos> = datosProducto;
-    const idMarca: number = datosProducto.idMarca;
-    const idCategoria: number = datosProducto.idCategoria;
-    const idPrecio: number = datosProducto.idPrecio;
-    
-    
-  
-    return await this.productosService.crearProducto(productoData, idMarca, idCategoria, idPrecio);
+  async crearProducto(@Body() data: UpdateProductoDto){
+    return this.productosService.crearProductos(data)
   }
   
-  //actualiza el producto
-  @Patch(':idProducto')
-  updateProducto(@Param('idProducto', ParseIntPipe) id: number, @Body() data: UpdateProductoDto) {
-    return this.productosService.updateProducto(id, data);
-  }
+  // //actualiza el producto
+  // @Patch(':idProducto')
+  // updateProducto(@Param('idProducto', ParseIntPipe) id: number, @Body() data: UpdateProductoDto) {
+  //   return this.productosService.updateProducto(id, data);
+  // }
   
-
-
 
   //elimina el producto por el id pero posiblemente no se pueda poner en practica porq hay tablas relacionadas
-  // @Delete(':idProductos')
-  // eliminarProducto(@Param('idProductos', ParseIntPipe) id: number){
-  //   return this.productosService.eliminarProducto(id)
-  // }
+  @Delete(':idProductos')
+  eliminarProducto(@Param('idProductos', ParseIntPipe) id: number){
+    return this.productosService.eliminarProducto(id)
+  }
 
   
 }

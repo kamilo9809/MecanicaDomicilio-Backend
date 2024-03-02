@@ -17,7 +17,7 @@ export class Productos {
     nombre_productos: string
 
     @Column({ type: 'varchar', length: 1000 })
-    decripcion: string
+    descripcion: string
 
     @Column({ type: 'varchar', length: 100 })
     referencia: string
@@ -35,7 +35,7 @@ export class Productos {
     //un producto puede tener muchas imagenes pero una imagen solo puede estar relacionada a un producto
     // Ejemplo de la relación OneToMany con eliminación en cascada
     @ManyToOne(() => Imagenes, imagen => imagen.producto, { cascade: true })
-    imagenes: Imagenes[];
+    imagenes: Imagenes;
 
     //relacion uno a muchos por q el precio del producto puede cambiar con el tiempo 
     @ManyToOne(() => Precio, precio => precio.productos)
@@ -48,4 +48,5 @@ export class Productos {
     //un producto puede tener varias calificaciones
     @OneToMany(() => Calificaciones, calificacion => calificacion.producto, { cascade: true })
     calificaciones: Calificaciones[]
+  nuevoProducto: Marca
 }
