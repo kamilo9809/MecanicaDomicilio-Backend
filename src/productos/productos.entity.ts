@@ -1,8 +1,8 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany } from "typeorm"
 import { Categorias } from "../categorias/categorias.entity"
-import { Imagenes } from "./imagenes/imagenes.entity"
-import { Precio } from "./precio/precio.entity"
-import { Marca } from "./marca/marca.entity"
+import { Imagenes } from "../imagenes/imagenes.entity"
+import { Precio } from "../precio/precio.entity"
+import { Marca } from "../marca/marca.entity"
 import { Calificaciones } from "../calificaciones/calificaciones.entity"
 
 

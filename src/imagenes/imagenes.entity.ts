@@ -1,5 +1,5 @@
-import {Entity, Column, PrimaryGeneratedColumn, ManyToOne} from "typeorm"
-import {Productos} from "../productos.entity"
+import {Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany} from "typeorm"
+import {Productos} from "../productos/productos.entity"
 
 @Entity()
 export class Imagenes {
@@ -10,7 +10,7 @@ export class Imagenes {
     url: string
 
     //un producto puede tener muchas imagenes pero una imagen pertenece a un producto relacion uno a muchos
-    @ManyToOne(() => Productos, producto => producto.imagenes)
+    @OneToMany(() => Productos, producto => producto.imagenes)
     producto: Productos;
     
 }

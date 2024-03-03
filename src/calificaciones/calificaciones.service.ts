@@ -25,7 +25,7 @@ export class CalificacionesService {
     
     async crearCalificaciones(idProducto: number, calificacion: crearCalificacionesDto) {
         try {
-            // Verificar si el producto existe y ademas trae ese id para poner guardar la calificacion en la pinche base de datos
+            // Verificar si el producto existe y ademas trae ese id para poner guardar la calificacion en la pinche base de datos y ademas vuelco a utilizar el metodo get
             const producto = await this.productosService.getProductosId(idProducto);
             if (!producto) {
                 throw new HttpException('El producto no existe', HttpStatus.NOT_FOUND);

@@ -1,14 +1,15 @@
-export class UpdateProductoDto{
+export class UpdateProductoDto {
     nombre_productos?: string;
-    decripcion?: string; // Corregir nombre de propiedad
+    descripcion?: string;
     garantia?: number;
     cantidad_stock?: number;
     referencia?: string;
     categoriaIdCategoria?: number;
     marcaIdMarca?: number;
     precioIdPrecio?: number;
-    imagenesIdImagenes?: number
-}
+    imagenesIdImagenes?: number;
+  }
+  
 
 export class CrearProductoDto{
     nombre_productos?: string;

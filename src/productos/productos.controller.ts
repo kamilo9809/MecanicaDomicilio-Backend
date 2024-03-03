@@ -27,10 +27,10 @@ export class ProductosController {
   }
   
   // //actualiza el producto
-  // @Patch(':idProducto')
-  // updateProducto(@Param('idProducto', ParseIntPipe) id: number, @Body() data: UpdateProductoDto) {
-  //   return this.productosService.updateProducto(id, data);
-  // }
+  @Patch(':idProductos')
+  updateProducto(@Param('idProductos', ParseIntPipe) id: number, @Body() data: UpdateProductoDto) {
+    return this.productosService.actualizarProducto(id, data);
+  }
   
 
   //elimina el producto por el id pero posiblemente no se pueda poner en practica porq hay tablas relacionadas

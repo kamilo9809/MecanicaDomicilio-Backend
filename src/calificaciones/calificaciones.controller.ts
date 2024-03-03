@@ -14,14 +14,12 @@ export class CalificacionesController {
         return this.calificacionesService.getCalificaciones()
     }
 
-    @Post(':id') // Ruta: POST '/calificaciones/:id'
+    @Post(':id') 
     crearCalificaciones(
-      @Param('id', ParseIntPipe) id: number, // Obtener el ID del producto desde la ruta
+      @Param('id', ParseIntPipe) id: number, 
       @Body() calificacion: crearCalificacionesDto // Obtener la calificación desde el cuerpo de la solicitud
     ) {
       return this.calificacionesService.crearCalificaciones(id, calificacion); // Llamar al método del servicio con el ID y la calificación
     }
     
-
-
 }

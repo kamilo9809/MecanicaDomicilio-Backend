@@ -4,9 +4,9 @@ import { Repository } from 'typeorm';
 import { Productos } from './productos.entity';
 import { Calificaciones } from "../calificaciones/calificaciones.entity"
 import { Categorias } from "../categorias/categorias.entity"
-import { Imagenes } from "./imagenes/imagenes.entity"
-import { Marca } from "./marca/marca.entity"
-import { Precio } from "./precio/precio.entity"
+import { Imagenes } from "../imagenes/imagenes.entity"
+import { Marca } from "../marca/marca.entity"
+import { Precio } from "../precio/precio.entity"
 import { CrearProductoDto, UpdateProductoDto } from './typado/crear_typado.typado';
 
 @Injectable()
@@ -86,7 +86,7 @@ export class ProductosService {
     }
     
     
-//elimina el producto por el id pero posiblemente no se pueda poner en practica porq hay tablas relacionadas
+// elimina el producto por el id pero posiblemente no se pueda poner en practica porq hay tablas relacionadas
   async eliminarProducto(idProductos: number){
     const existeProducto = await this.producRepository.delete({idProductos})
 
@@ -97,6 +97,45 @@ export class ProductosService {
     return existeProducto
   }
 
+  async actualizarProducto(idProductos: number, data: UpdateProductoDto) {
+    // Buscar el producto por su ID
+    const producto = await this.producRepository.findOne({
+      where: {
+        idProductos
+      }
+    });
+  
+    // Verificar si el producto existe
+    if (!producto) {
+      throw new HttpException('El producto que intentas actualizar no existe', HttpStatus.NOT_FOUND);
+    }
+  
+    // Actualizar los campos del producto con los datos proporcionados en el DTO
+    if (data.nombre_productos !== undefined) {
+      producto.nombre_productos = data.nombre_productos;
+    }
+
+    if (data.descripcion !== undefined) {
+      producto.descripcion = data.descripcion;
+    }
+
+    if (data.referencia !== undefined) {
+      producto.referencia = data.referencia;
+    }
+
+    if (data.garantia !== undefined) {
+      producto.garantia = data.garantia;
+    }
+
+    if (data.cantidad_stock !== undefined) {
+      producto.cantidad_stock = data.cantidad_stock;
+    }
+
+  
+    // Guardar el producto actualizado en la base de datos
+    return this.producRepository.save(producto);
+  }
+  
 
 }
 

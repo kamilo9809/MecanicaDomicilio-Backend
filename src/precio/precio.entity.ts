@@ -1,5 +1,5 @@
 import {Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany} from "typeorm"
-import { Productos } from "../productos.entity"
+import { Productos } from "../productos/productos.entity"
 import * as bigInt from 'big-integer'; // Importa la biblioteca big-integer
 
 @Entity()

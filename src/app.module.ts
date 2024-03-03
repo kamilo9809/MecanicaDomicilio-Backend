@@ -5,9 +5,9 @@ import { TypeOrmModule } from "@nestjs/typeorm"//este modulo simplifica la conex
 import { ProductosModule } from './productos/productos.module';
 import {Productos} from "./productos/productos.entity"
 import { Categorias } from "./categorias/categorias.entity"
-import {Imagenes} from "./productos/imagenes/imagenes.entity"
-import {Precio} from "./productos/precio/precio.entity"
-import { Marca } from './productos/marca/marca.entity';
+import {Imagenes} from "./imagenes/imagenes.entity"
+import {Precio} from "./precio/precio.entity"
+import { Marca } from './marca/marca.entity';
 import { PedidosModule } from './pedidos/pedidos.module';
 import { UsuariosModule } from './usuarios/usuarios.module';
 import {Detalles_pedidos} from "./pedidos/detalles_pedido/detalles_pedido.entity"
@@ -18,6 +18,10 @@ import { Calificaciones } from './calificaciones/calificaciones.entity';
 import { BuscadorModule } from './buscador/buscador.module';
 import { CalificacionesModule } from './calificaciones/calificaciones.module';
 import { CategoriasModule } from './categorias/categorias.module';
+import { ImagenesModule } from './imagenes/imagenes.module';
+import { MarcaModule } from './marca/marca.module';
+import { PrecioModule } from './precio/precio.module';
+import { CorreoModule } from './correo/correo.module';
 
 
 dotenv.config()
@@ -39,7 +43,11 @@ dotenv.config()
     UsuariosModule,
     BuscadorModule,
     CalificacionesModule,
-    CategoriasModule
+    CategoriasModule,
+    ImagenesModule,
+    MarcaModule,
+    PrecioModule,
+    CorreoModule
 
 
   ],
