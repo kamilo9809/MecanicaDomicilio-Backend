@@ -20,4 +20,5 @@ export class actualizarUsuarioDto{
     correo: string
     password: string
     telefono: string
+    
 }
