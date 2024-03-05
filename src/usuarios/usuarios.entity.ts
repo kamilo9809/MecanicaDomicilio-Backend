@@ -34,10 +34,6 @@ export class Usuarios {
     @Column({ type: 'varchar', length: 100 })
     password: string;
 
-    // Definiendo la relación uno a muchos con los pedidos
-    @OneToMany(() => Pedidos, pedido => pedido.usuario)
-    pedidos: Pedidos[];
-
     @OneToMany(() => Carrito, carrito => carrito.usuario)
     carritos: Carrito[];
 }
