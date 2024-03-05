@@ -10,7 +10,6 @@ import {Precio} from "./precio/precio.entity"
 import { Marca } from './marca/marca.entity';
 import { PedidosModule } from './pedidos/pedidos.module';
 import { UsuariosModule } from './usuarios/usuarios.module';
-import {Detalles_pedidos} from "./pedidos/detalles_pedido/detalles_pedido.entity"
 import * as dotenv from 'dotenv';
 import { Pedidos } from './pedidos/pedidos.entity';
 import { Usuarios } from './usuarios/usuarios.entity';
@@ -24,6 +23,8 @@ import { PrecioModule } from './precio/precio.module';
 import { CorreoModule } from './correo/correo.module';
 import { CarritoModule } from './carrito/carrito.module';
 import { Carrito } from "./carrito/carrito.entity"
+import { MapaModule } from './mapa/mapa.module';
+
 
 dotenv.config()
 
@@ -36,7 +37,7 @@ dotenv.config()
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
-      entities: [Productos, Categorias, Imagenes, Precio, Marca, Detalles_pedidos, Pedidos, Usuarios, Calificaciones, Carrito],//dice q cualquier carpeta de la ruta con la extencion la va cargar automaticamente
+      entities: [Productos, Categorias, Imagenes, Precio, Marca, Pedidos, Usuarios, Calificaciones, Carrito],//dice q cualquier carpeta de la ruta con la extencion la va cargar automaticamente
       synchronize: true //creo las tablas en codigo y este lo va reflejar en la base de datos
     }),
     ProductosModule,
@@ -49,7 +50,8 @@ dotenv.config()
     MarcaModule,
     PrecioModule,
     CorreoModule,
-    CarritoModule
+    CarritoModule,
+    MapaModule
 
 
   ],
