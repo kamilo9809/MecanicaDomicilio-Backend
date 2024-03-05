@@ -10,7 +10,7 @@ export class Pedidos {
   fecha: Date;
 
   @Column()
-  estado: boolean;
+  estado: string;
 
   // Un pedido está asociado con un carrito
   @ManyToOne(() => Carrito)
