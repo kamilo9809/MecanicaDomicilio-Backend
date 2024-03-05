@@ -1,6 +1,7 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany, OneToOne } from "typeorm";
 import { Usuarios } from "../usuarios/usuarios.entity";
 import {Detalles_pedidos} from "../pedidos/detalles_pedido/detalles_pedido.entity"
+import { Carrito } from "../carrito/carrito.entity"
 
 @Entity()
 export class Pedidos {
@@ -19,4 +20,8 @@ export class Pedidos {
 
     @OneToMany(() => Detalles_pedidos, detalle => detalle.pedido) // Cambio aquí
     detalle: Detalles_pedidos[]; // Cambio aquí
+
+      // Un pedido está asociado con un carrito
+      @OneToOne(() => Carrito)
+      carrito: Carrito;
 }

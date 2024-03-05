@@ -8,6 +8,7 @@ import { Precio } from "../precio/precio.entity"
 import { Marca } from '../marca/marca.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Calificaciones } from '../calificaciones/calificaciones.entity';
+import { Carrito } from "../carrito/carrito.entity"
 
 
 
@@ -15,7 +16,7 @@ import { Calificaciones } from '../calificaciones/calificaciones.entity';
 @Module({
   providers: [ProductosService],
   controllers: [ProductosController],
-  imports: [TypeOrmModule.forFeature([Categorias, Productos, Imagenes, Precio, Marca, Calificaciones])],//aca van las tablas q estan relacionadas 
+  imports: [TypeOrmModule.forFeature([Categorias, Productos, Imagenes, Precio, Marca, Calificaciones, Carrito])],//aca van las tablas q estan relacionadas 
   exports: [ProductosService]//exporta el modulo por si necesito usarlo en otros modulo 
 })
 export class ProductosModule {}

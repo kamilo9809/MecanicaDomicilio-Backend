@@ -10,6 +10,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
   imports: [TypeOrmModule.forFeature([ Pedidos,Detalles_pedidos])],
   providers: [PedidosService],
   controllers: [PedidosController],
-  exports: []
+  exports: [PedidosModule]
 })
 export class PedidosModule {}

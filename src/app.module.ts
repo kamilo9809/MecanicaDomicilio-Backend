@@ -22,7 +22,8 @@ import { ImagenesModule } from './imagenes/imagenes.module';
 import { MarcaModule } from './marca/marca.module';
 import { PrecioModule } from './precio/precio.module';
 import { CorreoModule } from './correo/correo.module';
-
+import { CarritoModule } from './carrito/carrito.module';
+import { Carrito } from "./carrito/carrito.entity"
 
 dotenv.config()
 
@@ -35,7 +36,7 @@ dotenv.config()
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
-      entities: [Productos, Categorias, Imagenes, Precio, Marca, Detalles_pedidos, Pedidos, Usuarios, Calificaciones],//dice q cualquier carpeta de la ruta con la extencion la va cargar automaticamente
+      entities: [Productos, Categorias, Imagenes, Precio, Marca, Detalles_pedidos, Pedidos, Usuarios, Calificaciones, Carrito],//dice q cualquier carpeta de la ruta con la extencion la va cargar automaticamente
       synchronize: true //creo las tablas en codigo y este lo va reflejar en la base de datos
     }),
     ProductosModule,
@@ -47,7 +48,8 @@ dotenv.config()
     ImagenesModule,
     MarcaModule,
     PrecioModule,
-    CorreoModule
+    CorreoModule,
+    CarritoModule
 
 
   ],

@@ -1,5 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm";
 import { Pedidos } from "../pedidos/pedidos.entity"; // Ajusta la ruta de importación según tu estructura de archivos
+import { Carrito } from "../carrito/carrito.entity"
 
 @Entity()
 export class Usuarios {
@@ -36,4 +37,7 @@ export class Usuarios {
     // Definiendo la relación uno a muchos con los pedidos
     @OneToMany(() => Pedidos, pedido => pedido.usuario)
     pedidos: Pedidos[];
+
+    @OneToMany(() => Carrito, carrito => carrito.usuario)
+    carritos: Carrito[];
 }
