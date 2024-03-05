@@ -23,6 +23,8 @@ export class ConsultasFechasService {
       where: {
         fecha: Between(fechaInicio, fechaFin),
       },
+      //pues esto saca toda la informacion de el producto 
+      relations: ['carrito', 'carrito.producto', 'carrito.usuario', 'carrito.producto.precio' ]
     });
 
     if (pedidos.length === 0) {
@@ -36,7 +38,7 @@ export class ConsultasFechasService {
     const pedidos = await this.pedidoRepository.find({
       where: {
         fecha: Between(fechaInicio, fechaFin),
-      },
+      }
     });
 
     if (pedidos.length === 0) {

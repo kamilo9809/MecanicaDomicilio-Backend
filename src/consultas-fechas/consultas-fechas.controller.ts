@@ -7,13 +7,11 @@ import { Pedidos } from '../pedidos/pedidos.entity';
 export class ConsultasFechasController {
   constructor(private readonly consultasFechasService: ConsultasFechasService) {}
 
+
   @Get('fecha/:fecha')
   async buscarPedidosPorFecha(@Param('fecha') fechaStr: string): Promise<Pedidos[]> {
-    // Dividir la cadena en base al carácter "T" y tomar la primera parte (la fecha)
-    const fechaSinHora = fechaStr.split('T')[0];
-    
-    const fecha = new Date(fechaSinHora);
-    console.log(fechaSinHora);
+    const fecha = new Date(`${fechaStr} 00:00:00`); // Agrega la hora al formato de fecha por q solo fecha no me fuciono
+    console.log('Fecha recibida:', fecha);
     
     if (isNaN(fecha.getTime())) {
       throw new BadRequestException('Fecha inválida');
@@ -23,16 +21,17 @@ export class ConsultasFechasController {
   }
   
 
-  @Get('rango/:fechaInicio/:fechaFin')
+
+  @Get('fecha/:fechaInicio/:fechaFin')
   async buscarPedidosPorRangoDeFechas(
     @Param('fechaInicio') fechaInicioStr: string,
     @Param('fechaFin') fechaFinStr: string,
   ): Promise<Pedidos[]> {
-    const fechaInicio = new Date(fechaInicioStr);
-    const fechaFin = new Date(fechaFinStr);
+    const fechaInicio = new Date(`${fechaInicioStr} 00:00:00`);
+    const fechaFin = new Date(`${fechaFinStr} 23:59:59`);
     if (isNaN(fechaInicio.getTime()) || isNaN(fechaFin.getTime())) {
       throw new BadRequestException('Fechas inválidas');
     }
-    return await this.consultasFechasService.findPedidosPorRangoDeFechas(fechaInicio, fechaFin); // Pasa los objetos Date
+    return await this.consultasFechasService.findPedidosPorRangoDeFechas(fechaInicio, fechaFin);
   }
 }

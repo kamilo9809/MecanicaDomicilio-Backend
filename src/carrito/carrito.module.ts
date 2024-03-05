@@ -15,6 +15,7 @@ import { Carrito } from "./carrito.entity"
 @Module({
   imports: [TypeOrmModule.forFeature([Productos, Pedidos, Marca, Calificaciones, Categorias, Imagenes, Precio, Usuarios, Carrito])],
   providers: [CarritoService],
-  controllers: [CarritoController]
+  controllers: [CarritoController],
+  exports: [CarritoModule]
 })
 export class CarritoModule {}

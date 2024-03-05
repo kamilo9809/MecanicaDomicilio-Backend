@@ -25,6 +25,7 @@ import { CarritoModule } from './carrito/carrito.module';
 import { Carrito } from "./carrito/carrito.entity"
 import { MapaModule } from './mapa/mapa.module';
 import { ConsultasFechasModule } from './consultas-fechas/consultas-fechas.module';
+import { EstadosModule } from './estados/estados.module';
 
 
 dotenv.config()
@@ -53,7 +54,8 @@ dotenv.config()
     CorreoModule,
     CarritoModule,
     MapaModule,
-    ConsultasFechasModule
+    ConsultasFechasModule,
+    EstadosModule
 
 
   ],
